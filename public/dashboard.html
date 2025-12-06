@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Port de Plaisance Russell</title>
+  <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Tableau de bord</h1>
+        <nav>
+            <a href="users.html">Utilisateurs</a>
+            <a href="catways.html">Catways</a>
+            <a href="reservations.html">Réservations</a>
+            <a href="/api-docs" target="_blank">Documentation API</a>
+            <button id="logoutBtn">Déconnexion</button>
+        </nav>
+    </header>
+    <section>
+        <h2>Bienvenue, <span id="username"></span> (<span id="email"></span>)</h2>
+        <p>Date du jour : <span id="date"></span></p>
+
+        <h3>Réservations en cours</h3>
+        <table id="reservationsTable">
+            <thead>
+                <tr>
+                    <th>Catway</th>
+                    <th>Client</th>
+                    <th>Bateau</th>
+                    <th>Début</th>
+                    <th>Fin</th>
+                </tr>
+            </thead>
+            <tbody>
+               <% reservation.forEach(reservation => { %>
+                <tr>
+                  <td><%= reservation.catwayNumber %></td>
+                  <td><%= reservation.clientName %></td>
+                  <td><%= reservation.boatName %></td>
+                  <td><%= reservation.startDate %></td>
+                  <td><%= reservation.endDate %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+        </table>
+    </section>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
