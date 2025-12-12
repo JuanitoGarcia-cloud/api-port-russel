@@ -1,0 +1,10 @@
+<% layout('layout') %>
+
+<h1>Détails du catway n° <%= catway.catwayNumber %></h1>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item">Type : <%= catway.catwayType %></li>
+    <li class="list-group-item">État : <%= catway.catwayState %></li>
+</ul>
+
+<a href="/catways" class="btn btn-secondary">Retour</a>

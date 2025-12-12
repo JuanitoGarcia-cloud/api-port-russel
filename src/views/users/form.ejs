@@ -1,0 +1,22 @@
+<% layout('layout') %>
+
+<h1><%= edit ? "Modifier" : "Créer" %> un utilisateur</h1>
+
+<form action="<%= action %>" method="POST">
+    <div class="mb-3">
+        <label>Nom d'utilisateur</label>
+        <input class="form-control" name="username" required value="<%= user?.username || "" %>">
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input class="form-control" type="email" name="email" required value="<%= user?.email || "" %>">
+    </div>
+
+    <div class="mb-3">
+        <label>Mot de passe</label>
+        <input class="form-control" type="password" name="password" <%= edit ? "" : "required" %>>
+    </div>
+
+    <button class="btn btn-success">Valider</button>
+</form>

@@ -1,0 +1,28 @@
+<% layout('layout') %>
+
+<h1><%= edit ? "Modifier" : "Créer" %> un catway</h1>
+
+<form action="<%= action %>" method="POST">
+    
+    <% if (!edit) { %>
+    <div class="mb-3">
+        <label>Numéro</label>
+        <input class="form-control" type="number" name="catwayNumber" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Type</label>
+        <select class="form-control" name="catwayType">
+            <option value="long">Long</option>
+            <option value="short">Short</option>
+        </select>
+    </div>
+    <% } %>
+
+    <div class="mb-3">
+        <label>État</label>
+        <textarea class="form-control" name="catwayState" rows="3" required><%= catway?.catwayState || "" %></textarea>
+    </div>
+
+    <button class="btn btn-success" type="submit">Valider</button>
+</form>

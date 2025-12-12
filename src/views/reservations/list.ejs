@@ -1,0 +1,38 @@
+<% layout('layout') %>
+
+<h1 class="mb-3">Réservations</h1>
+
+<a href="/reservations/new" class="btn btn-primary mb-3">Créer une réservation</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Catway</th>
+            <th>Client</th>
+            <th>Bateau</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% reservations.forEach(r => { %>
+        <tr>
+            <td><%= r.catwayNumber %></td>
+            <td><%= r.clientName %></td>
+            <td><%= r.boatName %></td>
+            <td><%= r.startDate.toLocaleDateString() %></td>
+            <td><%= r.endDate.toLocaleDateString() %></td>
+
+            <td>
+                <a class="btn btn-info btn-sm" href="/reservations/<%= r._id %>">Détails</a>
+                <a class="btn btn-warning btn-sm" href="/reservations/<%= r._id %>/edit">Modifier</a>
+                <form class="d-inline" action="/reservations/<%= r._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>

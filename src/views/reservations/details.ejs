@@ -1,0 +1,13 @@
+<% layout('layout') %>
+
+<h1>Détails de la réservation</h1>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item">Catway : <%= reservation.catwayNumber %></li>
+    <li class="list-group-item">Client : <%= reservation.clientName %></li>
+    <li class="list-group-item">Bateau : <%= reservation.boatName %></li>
+    <li class="list-group-item">Début : <%= reservation.startDate.toLocaleString() %></li>
+    <li class="list-group-item">Fin : <%= reservation.endDate.toLocaleString() %></li>
+</ul>
+
+<a href="/reservations" class="btn btn-secondary">Retour</a>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Dashboard</title></head>
+<body>
+  <nav>
+    <a href="/catways">Catways</a> |
+    <a href="/catways">Reservations</a> |
+    <a href="/users">Utilisateurs</a> |
+    <a href="/api-docs">API Docs</a> |
+    <a href="/logout">Déconnexion</a>
+  </nav>
+  <h1>Tableau de bord</h1>
+  <p>Nom: <%= user ? user.username : '—' %></p>
+  <p>Email: <%= user ? user.email : '—' %></p>
+  <p>Date: <%= new Date().toLocaleDateString('fr-FR') %></p>
+  <h2>Réservations en cours</h2>
+  <p>(liste fournie via l'API)</p>
+</body>
+</html>

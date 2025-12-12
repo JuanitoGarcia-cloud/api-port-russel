@@ -1,0 +1,33 @@
+<% layout('layout') %>
+
+<h1><%= edit ? "Modifier" : "Créer" %> une réservation</h1>
+
+<form action="<%= action %>" method="POST">
+
+    <div class="mb-3">
+        <label>Catway</label>
+        <input class="form-control" type="number" name="catwayNumber" required value="<%= reservation?.catwayNumber || "" %>">
+    </div>
+
+    <div class="mb-3">
+        <label>Client</label>
+        <input class="form-control" type="text" name="clientName" required value="<%= reservation?.clientName || "" %>">
+    </div>
+
+    <div class="mb-3">
+        <label>Bateau</label>
+        <input class="form-control" type="text" name="boatName" required value="<%= reservation?.boatName || "" %>">
+    </div>
+
+    <div class="mb-3">
+        <label>Date début</label>
+        <input class="form-control" type="datetime-local" name="startDate" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Date fin</label>
+        <input class="form-control" type="datetime-local" name="endDate" required>
+    </div>
+
+    <button class="btn btn-success">Valider</button>
+</form>

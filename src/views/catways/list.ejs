@@ -1,0 +1,33 @@
+<% layout('layout') %>
+
+<h1 class="mb-3">Liste des Catways</h1>
+
+<a href="/catways/new" class="btn btn-primary mb-3">Créer un catway</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Type</th>
+            <th>État</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% catways.forEach(c => { %>
+            <tr>
+                <td><%= c.catwayNumber %></td>
+                <td><%= c.catwayType %></td>
+                <td><%= c.catwayState %></td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="/catways/<%= c.catwayNumber %>">Détails</a>
+                    <a class="btn btn-warning btn-sm" href="/catways/<%= c.catwayNumber %>/edit">Modifier</a>
+                    <form class="d-inline" action="/catways/<%= c.catwayNumber %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm" type="submit">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
